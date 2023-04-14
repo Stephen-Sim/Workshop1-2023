@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:models="clr-namespace:Sponsor_Mobile.Models"
+             x:Class="Sponsor_Mobile.MainPage" Title="ASC 2023 Sponsor App">
+
+    <ContentPage.Content>
+        <StackLayout Margin="8">
+            <Picker x:Name="CountryPicker" Title="Country" SelectedIndexChanged="CountryPicker_SelectedIndexChanged"/>
+            <Picker x:Name="SkillPicker" Title="Skill" SelectedIndexChanged="CountryPicker_SelectedIndexChanged"/>
+
+            <Label Text="Competitors:"/>
+            <ListView x:Name="CompetitorListView" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Competitor">
+                        <ViewCell>
+                            <Grid RowDefinitions="80" ColumnDefinitions="80, *, 50">
+                                <Frame Padding="0" HeightRequest="50" WidthRequest="50" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" BackgroundColor="{Binding Color}" CornerRadius="50"/>
+                                <StackLayout Grid.Column="1">
+                                    <Label>
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Name: " FontAttributes="Bold"/>
+                                                <Span Text="{Binding Name}" FontAttributes="Bold"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <Label>
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="County :" FontAttributes="Bold"/>
+                                                <Span Text="{Binding CountryName}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <Label>
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Skill: " FontAttributes="Bold"/>
+                                                <Span Text="{Binding SkillName}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </StackLayout>
+                                <ImageButton Source="sponsor" Grid.Column="2" HeightRequest="40" WidthRequest="40" Padding="0"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" BackgroundColor="Transparent" CommandParameter="{Binding .}" Clicked="ImageButton_Clicked"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+            <Label x:Name="TotalComLabel" FontSize="14"/>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>

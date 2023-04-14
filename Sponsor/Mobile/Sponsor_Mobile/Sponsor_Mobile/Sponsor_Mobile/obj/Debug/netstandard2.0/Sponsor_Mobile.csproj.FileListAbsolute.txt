@@ -1,0 +1,16 @@
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Mobile\Sponsor_Mobile\Sponsor_Mobile\Sponsor_Mobile\bin\Debug\netstandard2.0\Sponsor_Mobile.deps.json
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Mobile\Sponsor_Mobile\Sponsor_Mobile\Sponsor_Mobile\bin\Debug\netstandard2.0\Sponsor_Mobile.dll
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Mobile\Sponsor_Mobile\Sponsor_Mobile\Sponsor_Mobile\bin\Debug\netstandard2.0\Sponsor_Mobile.pdb
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Mobile\Sponsor_Mobile\Sponsor_Mobile\Sponsor_Mobile\obj\Debug\netstandard2.0\Sponsor_Mobile.csproj.AssemblyReference.cache
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Mobile\Sponsor_Mobile\Sponsor_Mobile\Sponsor_Mobile\obj\Debug\netstandard2.0\Sponsor_Mobile.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Mobile\Sponsor_Mobile\Sponsor_Mobile\Sponsor_Mobile\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Mobile\Sponsor_Mobile\Sponsor_Mobile\Sponsor_Mobile\obj\Debug\netstandard2.0\Sponsor_Mobile.AssemblyInfoInputs.cache
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Mobile\Sponsor_Mobile\Sponsor_Mobile\Sponsor_Mobile\obj\Debug\netstandard2.0\Sponsor_Mobile.AssemblyInfo.cs
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Mobile\Sponsor_Mobile\Sponsor_Mobile\Sponsor_Mobile\obj\Debug\netstandard2.0\Sponsor_Mobile.csproj.CoreCompileInputs.cache
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Mobile\Sponsor_Mobile\Sponsor_Mobile\Sponsor_Mobile\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Mobile\Sponsor_Mobile\Sponsor_Mobile\Sponsor_Mobile\obj\Debug\netstandard2.0\Sponsor_Mobile.dll
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Mobile\Sponsor_Mobile\Sponsor_Mobile\Sponsor_Mobile\obj\Debug\netstandard2.0\refint\Sponsor_Mobile.dll
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Mobile\Sponsor_Mobile\Sponsor_Mobile\Sponsor_Mobile\obj\Debug\netstandard2.0\Sponsor_Mobile.pdb
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Mobile\Sponsor_Mobile\Sponsor_Mobile\Sponsor_Mobile\obj\Debug\netstandard2.0\ref\Sponsor_Mobile.dll
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Mobile\Sponsor_Mobile\Sponsor_Mobile\Sponsor_Mobile\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Mobile\Sponsor_Mobile\Sponsor_Mobile\Sponsor_Mobile\obj\Debug\netstandard2.0\Views\PaymentPage.xaml.g.cs

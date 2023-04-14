@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sponsor_Mobile.Views.PaymentPage" Title="Payment">
+    <ContentPage.Content>
+        <StackLayout Margin="8">
+            <StackLayout>
+                <Label Text="Competitor Details"/>
+
+                <Grid ColumnDefinitions="105, *">
+                    <Label FontAttributes="Bold" Text="Name :" VerticalOptions="Center"/>
+                    <Label FontAttributes="Bold" Grid.Column="1" Text="{Binding Competitor.Name}" VerticalOptions="Center"/>
+                </Grid>
+
+                <Grid ColumnDefinitions="105, *">
+                    <Label FontAttributes="Bold" Text="Skill :" VerticalOptions="Center"/>
+                    <Label Grid.Column="1" Text="{Binding Competitor.SkillName}" VerticalOptions="Center"/>
+                </Grid>
+
+                <Grid ColumnDefinitions="105, *">
+                    <Label FontAttributes="Bold" Text="Country :" VerticalOptions="Center"/>
+                    <Label Grid.Column="1" Text="{Binding Competitor.CountryName}" VerticalOptions="Center"/>
+                </Grid>
+                
+            </StackLayout>
+
+            <BoxView Margin="0, 10, 0, 0" HeightRequest="1" BackgroundColor="LightGray"/>
+
+            <StackLayout Margin="0, 0, 0, 20">
+                <Label Text="Sponsor Details"/>
+                
+                <Grid ColumnDefinitions="105, *">
+                    <Label Text="Sponsor Name:" VerticalOptions="Center"/>
+                    <Editor x:Name="SponsornameEditor" Grid.Column="1" Placeholder="Sponsor Name"/>
+                </Grid>
+
+                <Grid ColumnDefinitions="105, *">
+                    <Label Text="Description: " VerticalOptions="Center"/>
+                    <Editor x:Name="DescEditor" Grid.Column="1" Placeholder="Description"/>
+                </Grid>
+
+                <Grid ColumnDefinitions="105, *">
+                    <Label Text="Currency: " VerticalOptions="Center"/>
+                    <Picker x:Name="CurrencyPicker" Title="Select a Currency" Grid.Column="1" SelectedIndexChanged="CurrencyPicker_SelectedIndexChanged"/>
+                </Grid>
+            
+                <Grid ColumnDefinitions="105, *">
+                    <Label Text="Amount: " VerticalOptions="Center"/>
+                    <Editor x:Name="AmountEditor" IsEnabled="False" Keyboard="Numeric" Grid.Column="1" Placeholder="Amount"/>
+                </Grid>
+
+                <Label x:Name="MaxLabel" Text="Maximum Amount: SGD 1000.00" HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+
+            <Grid  Margin="0, 0, 0, 20" ColumnDefinitions="*, 50" RowDefinitions="20, 50">
+                <Label Text="Credit Card Details: "/>
+                <Editor x:Name="CreditCardNumberEditor" Grid.Row="1" Placeholder="XXXX - XXXX - XXXX - XXXX" MaxLength="16"/>
+                <Editor x:Name="CVVEditor" Grid.Row="1" Grid.Column="1" Placeholder="CVV" MaxLength="3"/>
+            </Grid>
+
+            <Frame HeightRequest="110" Padding="10" BorderColor="Black">
+                <StackLayout>
+                    <StackLayout x:Name="CaptchaStackLayout" IsVisible="true" HorizontalOptions="CenterAndExpand">
+                        <Image x:Name="CaptchaImage" HeightRequest="60"/>
+                        <Grid ColumnDefinitions="*, auto" RowDefinitions="50">
+                            <Editor x:Name="CaptchaEditor" Keyboard="Numeric" MaxLength="4" Placeholder="Verify the Captcha" WidthRequest="150"/>
+                            <Button Grid.Column="1" Text="Check" Clicked="Button_Clicked"/>
+                        </Grid>
+                    </StackLayout>
+
+                    <Label x:Name="HumanLabel" IsVisible="false" FontAttributes="Bold" FontSize="45" Text="Human Verified" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+                </StackLayout>
+            </Frame>
+
+            <StackLayout Orientation="Horizontal">
+                <CheckBox x:Name="TermCheckbox"/>
+                <Label VerticalOptions="Center" Text="Agree payment terms"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                <Button Text="Pay" Clicked="Button_Clicked_2"/>
+                <Button Text="Cancel" Clicked="Button_Clicked_1"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
