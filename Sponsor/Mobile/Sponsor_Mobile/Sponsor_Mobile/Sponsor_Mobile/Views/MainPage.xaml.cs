@@ -25,11 +25,12 @@ namespace Sponsor_Mobile
             CountryList = new List<Temp>();
             CountryList.Add(new Temp { Id = 1, Name = "Philippines" });
             CountryList.Add(new Temp { Id = 2, Name = "Indonesia" });
-            CountryList.Add(new Temp { Id = 3, Name = "Philippines" });
-            CountryList.Add(new Temp { Id = 4, Name = "Cambodia" });
-            CountryList.Add(new Temp { Id = 5, Name = "Vietnam" });
-            CountryList.Add(new Temp { Id = 6, Name = "Malaysia" });
-            CountryList.Add(new Temp { Id = 7, Name = "Brunei" });
+            CountryList.Add(new Temp { Id = 3, Name = "Cambodia" });
+            CountryList.Add(new Temp { Id = 4, Name = "Vietnam" });
+            CountryList.Add(new Temp { Id = 5, Name = "Malaysia" });
+            CountryList.Add(new Temp { Id = 6, Name = "Singapore" });
+            CountryList.Add(new Temp { Id = 7, Name = "Philippines" });
+
 
             CountryPicker.ItemsSource = CountryList;
             CountryPicker.ItemDisplayBinding = new Binding("Name");
