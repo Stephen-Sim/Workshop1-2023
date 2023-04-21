@@ -92,9 +92,15 @@ namespace Sponsor_Mobile.Views
         private async void Button_Clicked_2(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(SponsornameEditor.Text) || string.IsNullOrEmpty(DescEditor.Text) || decimal.Parse(AmountEditor.Text) <= 0.00m
-                || string.IsNullOrEmpty(CreditCardNumberEditor.Text) || string.IsNullOrEmpty(CVVEditor.Text))
+                || string.IsNullOrEmpty(CardNumberEditor.Text) || string.IsNullOrEmpty(CVVEditor.Text) || CurrencyPicker.SelectedIndex == -1)
             {
                 await DisplayAlert("Alert", "All the feilds are required!", "Ok");
+                return;
+            }
+
+            if (CardNumberEditor.Text.Length < 16 && CVVEditor.Text.Length < 3)
+            {
+                await DisplayAlert("Alert", "Invalid Card Number Length or CVV Length!", "Ok");
                 return;
             }
 
@@ -116,6 +122,22 @@ namespace Sponsor_Mobile.Views
                 return;
             }
 
+            var card = new Card
+            {
+                CardNo = CardNumberEditor.Text,
+                CVV = CVVEditor.Text,
+                Amount = (decimal.Parse(AmountEditor.Text) * ((Currency)CurrencyPicker.SelectedItem).Rate)
+            };
+
+            var res = await getService.ValidateCard(card);
+
+            if (res != "success")
+            {
+                await DisplayAlert("Alert", res, "Ok");
+
+                return;
+            }
+
             var sponsor = new Sponsorship
             {
                 Amount = decimal.Parse(AmountEditor.Text),
@@ -126,9 +148,9 @@ namespace Sponsor_Mobile.Views
                 CurrencyId = ((Currency)CurrencyPicker.SelectedItem).Id,
             };
 
-            var res = await getService.storeSponsor(sponsor);
+            var res1 = await getService.storeSponsor(sponsor);
 
-            if (res == System.Net.HttpStatusCode.OK)
+            if (res1 == System.Net.HttpStatusCode.OK)
             {
                 await DisplayAlert("Alert", "Payment Success!", "Ok");
 

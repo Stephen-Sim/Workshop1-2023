@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ASC2023_Sponsor_BankDBModelStoreContainer" CdmEntityContainer="ASC2023_Sponsor_BankDBEntities">
+    <EntitySetMapping Name="Cards">
+      <EntityTypeMapping TypeName="ASC2023_Sponsor_BankDBModel.Card">
+        <MappingFragment StoreEntitySet="Cards">
+          <ScalarProperty Name="CVV" ColumnName="CVV" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="CardNo" ColumnName="CardNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -7,16 +7,21 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web.Http;
 
 namespace Sponsor_API.Controllers
 {
     public class GetController : ApiController
     {
-        private Models.ASC2023_SponsorEntities1 ent;
+        private Models.ASC2023_SponsorEntities ent;
+
+        private Models.ASC2023_Sponsor_BankDBEntities ent1;
         public GetController()
         {
-            this.ent = new ASC2023_SponsorEntities1();
+            this.ent = new ASC2023_SponsorEntities();
+            this.ent1 = new ASC2023_Sponsor_BankDBEntities();
         }
 
         [HttpGet]
@@ -35,15 +40,15 @@ namespace Sponsor_API.Controllers
                 {
                     var percentage = (ent.Sponsorships.Where(y => y.CompetitorId == x.Id).Any() ? ent.Sponsorships.Where(y => y.CompetitorId == x.Id).Sum(y => y.Amount * y.Currency.Rate) : 0.00m) / x.RequiredAmount * 100;
 
-                    if (percentage < 25)
+                    if (percentage < 30)
                     {
                         return "Red";
                     }
-                    else if (percentage < 50 && percentage < 75)
+                    else if (percentage < 60 && percentage < 80)
                     {
                         return "Orange";
                     }
-                    else if (percentage >= 75 && percentage < 100)
+                    else if (percentage >= 80 && percentage < 100)
                     {
                         return "Yellow";
                     }
@@ -148,6 +153,37 @@ namespace Sponsor_API.Controllers
                 return BadRequest();
             }
 
+        }
+
+        [HttpPost]
+        public object ValidateCard(CardRequest card)
+        {
+            var isCardExist = ent1.Cards.FirstOrDefault(x => x.CardNo == card.CardNo);
+
+            if (isCardExist == null)
+            {
+                return BadRequest("Invalid Card No!");
+            }
+
+            var algo = HashAlgorithm.Create("md5");
+            var hash = algo.ComputeHash(Encoding.UTF8.GetBytes(card.CVV));
+            var output = BitConverter.ToString(hash).Replace("-", "").ToLower();
+
+            if (output != isCardExist.CVV)
+            {
+                return Ok("Invalid Card CVV!");
+            }
+
+            if (isCardExist.Balance < card.Amount - 10)
+            {
+                return Ok("Insufficient Balance!");
+            }
+
+            isCardExist.Balance -= card.Amount;
+            ent1.Cards.Append(isCardExist);
+            ent1.SaveChanges();
+
+            return Ok("success");
         }
     }
 }

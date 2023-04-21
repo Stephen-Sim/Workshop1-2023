@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -80,6 +81,26 @@ namespace Sponsor_Mobile.Services
             {
                 Console.WriteLine(err.Message);
                 return HttpStatusCode.BadRequest;
+            }
+        }
+
+        public async Task<string> ValidateCard(Card card)
+        {
+            try
+            {
+                var url = this.url + $"ValidateCard";
+
+                var json = JsonConvert.SerializeObject(card);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                var res = await client.PostAsync(url, content);
+                var result = await res.Content.ReadAsStringAsync();
+
+                return JsonConvert.DeserializeObject<string>(result);
+            }
+            catch (Exception err)
+            {
+                Console.WriteLine(err.Message);
+                return string.Empty;
             }
         }
     }

@@ -52,9 +52,9 @@
                 <Label x:Name="MaxLabel" Text="Maximum Amount: SGD 1000.00" HorizontalOptions="EndAndExpand"/>
             </StackLayout>
 
-            <Grid  Margin="0, 0, 0, 20" ColumnDefinitions="*, 50" RowDefinitions="20, 50">
-                <Label Text="Credit Card Details: "/>
-                <Editor x:Name="CreditCardNumberEditor" Grid.Row="1" Placeholder="XXXX - XXXX - XXXX - XXXX" MaxLength="16"/>
+            <Grid Margin="0, 0, 0, 20" ColumnDefinitions="*, 50" RowDefinitions="20, 50">
+                <Label Text="Card Details: "/>
+                <Editor x:Name="CardNumberEditor" Keyboard="Numeric" Grid.Row="1" Placeholder="XXXX XXXX XXXX XXXX" MaxLength="16"/>
                 <Editor x:Name="CVVEditor" Grid.Row="1" Grid.Column="1" Placeholder="CVV" MaxLength="3"/>
             </Grid>
 

@@ -13,10 +13,10 @@ namespace Sponsor_API.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ASC2023_SponsorEntities1 : DbContext
+    public partial class ASC2023_SponsorEntities : DbContext
     {
-        public ASC2023_SponsorEntities1()
-            : base("name=ASC2023_SponsorEntities1")
+        public ASC2023_SponsorEntities()
+            : base("name=ASC2023_SponsorEntities")
         {
         }
     
