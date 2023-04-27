@@ -44,11 +44,11 @@ namespace Sponsor_API.Controllers
                     {
                         return "Red";
                     }
-                    else if (percentage < 60 && percentage < 80)
+                    else if (percentage >= 30 && percentage < 60)
                     {
                         return "Orange";
                     }
-                    else if (percentage >= 80 && percentage < 100)
+                    else if (percentage >= 60 && percentage < 100)
                     {
                         return "Yellow";
                     }

@@ -1,0 +1,17 @@
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Desktop\Sponsor_Desktop\Sponsor_Desktop\bin\Debug\Sponsor_Desktop.exe.config
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Desktop\Sponsor_Desktop\Sponsor_Desktop\bin\Debug\Sponsor_Desktop.exe
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Desktop\Sponsor_Desktop\Sponsor_Desktop\bin\Debug\Sponsor_Desktop.pdb
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Desktop\Sponsor_Desktop\Sponsor_Desktop\obj\Debug\Sponsor_Desktop.csproj.AssemblyReference.cache
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Desktop\Sponsor_Desktop\Sponsor_Desktop\obj\Debug\Sponsor_Desktop.csproj.SuggestedBindingRedirects.cache
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Desktop\Sponsor_Desktop\Sponsor_Desktop\obj\Debug\Sponsor_Desktop.Form1.resources
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Desktop\Sponsor_Desktop\Sponsor_Desktop\obj\Debug\Sponsor_Desktop.Properties.Resources.resources
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Desktop\Sponsor_Desktop\Sponsor_Desktop\obj\Debug\Sponsor_Desktop.csproj.GenerateResource.cache
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Desktop\Sponsor_Desktop\Sponsor_Desktop\obj\Debug\Sponsor_Desktop.csproj.CoreCompileInputs.cache
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Desktop\Sponsor_Desktop\Sponsor_Desktop\obj\Debug\Sponsor_Desktop.exe
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Desktop\Sponsor_Desktop\Sponsor_Desktop\obj\Debug\Sponsor_Desktop.pdb
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Desktop\Sponsor_Desktop\Sponsor_Desktop\bin\Debug\EntityFramework.dll
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Desktop\Sponsor_Desktop\Sponsor_Desktop\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Desktop\Sponsor_Desktop\Sponsor_Desktop\bin\Debug\EntityFramework.xml
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Desktop\Sponsor_Desktop\Sponsor_Desktop\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Desktop\Sponsor_Desktop\Sponsor_Desktop\obj\Debug\Sponsor_Desktop.csproj.CopyComplete
+C:\Users\simsh\Desktop\ASC2023_Practice\Sponsor\Desktop\Sponsor_Desktop\Sponsor_Desktop\obj\Debug\Sponsor_Desktop.CertForm.resources

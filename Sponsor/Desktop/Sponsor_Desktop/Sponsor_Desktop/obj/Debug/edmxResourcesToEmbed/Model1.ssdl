@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ASC2023_SponsorModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Competitors">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RequiredAmount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="SkillId" Type="bigint" Nullable="false" />
+    <Property Name="CountryID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CurrencyId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Currencies">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Rate" Type="decimal" Precision="20" Scale="8" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Skills">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sponsorships">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SponsorName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Precision="20" Scale="2" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DateTime" Type="datetime" Nullable="false" />
+    <Property Name="CompetitorId" Type="bigint" Nullable="false" />
+    <Property Name="CurrencyId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_Competitors_Countries">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
+    <End Role="Competitors" Type="Self.Competitors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Competitors">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Competitors_Skills">
+    <End Role="Skills" Type="Self.Skills" Multiplicity="1" />
+    <End Role="Competitors" Type="Self.Competitors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Skills">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Competitors">
+        <PropertyRef Name="SkillId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Countries_Currencies">
+    <End Role="Currencies" Type="Self.Currencies" Multiplicity="1" />
+    <End Role="Countries" Type="Self.Countries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Currencies">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Countries">
+        <PropertyRef Name="CurrencyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sponsorships_Competitors">
+    <End Role="Competitors" Type="Self.Competitors" Multiplicity="1" />
+    <End Role="Sponsorships" Type="Self.Sponsorships" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Competitors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sponsorships">
+        <PropertyRef Name="CompetitorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sponsorships_Currencies">
+    <End Role="Currencies" Type="Self.Currencies" Multiplicity="1" />
+    <End Role="Sponsorships" Type="Self.Sponsorships" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Currencies">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sponsorships">
+        <PropertyRef Name="CurrencyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ASC2023_SponsorModelStoreContainer">
+    <EntitySet Name="Competitors" EntityType="Self.Competitors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Currencies" EntityType="Self.Currencies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Skills" EntityType="Self.Skills" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sponsorships" EntityType="Self.Sponsorships" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Competitors_Countries" Association="Self.FK_Competitors_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Competitors" EntitySet="Competitors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Competitors_Skills" Association="Self.FK_Competitors_Skills">
+      <End Role="Skills" EntitySet="Skills" />
+      <End Role="Competitors" EntitySet="Competitors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Countries_Currencies" Association="Self.FK_Countries_Currencies">
+      <End Role="Currencies" EntitySet="Currencies" />
+      <End Role="Countries" EntitySet="Countries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sponsorships_Competitors" Association="Self.FK_Sponsorships_Competitors">
+      <End Role="Competitors" EntitySet="Competitors" />
+      <End Role="Sponsorships" EntitySet="Sponsorships" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sponsorships_Currencies" Association="Self.FK_Sponsorships_Currencies">
+      <End Role="Currencies" EntitySet="Currencies" />
+      <End Role="Sponsorships" EntitySet="Sponsorships" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
