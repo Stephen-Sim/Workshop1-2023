@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Session5_Mobile.Views.AboutPage" Title="Seoul Stay - About Stay">
+    <ContentPage.Content>
+        <StackLayout Margin="5">
+
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Image Source="logo" HeightRequest="100"/>
+                <Label Margin="0, 30, 0, 0" Text="Seoul Stay Addon Services" FontSize="20" VerticalOptions="Center" HorizontalOptions="Center"/>
+                <Label Text="V.1.0" FontSize="20" VerticalOptions="Center" HorizontalOptions="Center"/>
+            </StackLayout>
+
+            <Grid RowDefinitions="50" ColumnDefinitions="*, *, *">
+                <Frame Margin="-6, 0, 0, 0" Padding="0" BorderColor="Black">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Frame.GestureRecognizers>
+                    <Label Text="Services" FontSize="20" VerticalOptions="Center" HorizontalOptions="Center"/>
+                </Frame>
+                <Frame Margin="-6, 0, 0, 0" Padding="0" Grid.Column="1" BorderColor="Black">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                    </Frame.GestureRecognizers>
+                    <Label x:Name="CartButton" FontSize="20" VerticalOptions="Center" HorizontalOptions="Center"/>
+                </Frame>
+                <Frame Margin="-6, 0, 0, 0" Padding="0" Grid.Column="2" BorderColor="Black" BackgroundColor="#333333">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"/>
+                    </Frame.GestureRecognizers>
+                    <Label Text="About" FontSize="20" VerticalOptions="Center" HorizontalOptions="Center"/>
+                </Frame>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

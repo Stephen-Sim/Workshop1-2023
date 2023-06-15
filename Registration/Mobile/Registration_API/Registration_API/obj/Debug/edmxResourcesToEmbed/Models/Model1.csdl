@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ASC2023_RegistrationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Attendance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="CompetitonId" Type="Int64" Nullable="false" />
+    <Property Name="CompetitorId" Type="Int64" Nullable="false" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Competiton" Relationship="Self.FK_Attendances_Competitons" FromRole="Attendances" ToRole="Competitons" />
+    <NavigationProperty Name="Competitor" Relationship="Self.FK_Attendances_Competitors" FromRole="Attendances" ToRole="Competitors" />
+  </EntityType>
+  <EntityType Name="Competiton">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SkillId" Type="Int64" Nullable="false" />
+    <Property Name="Location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Attendances" Relationship="Self.FK_Attendances_Competitons" FromRole="Competitons" ToRole="Attendances" />
+    <NavigationProperty Name="Skill" Relationship="Self.FK_Competitons_Skills" FromRole="Competitons" ToRole="Skills" />
+  </EntityType>
+  <EntityType Name="Competitor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SkillId" Type="Int64" Nullable="false" />
+    <Property Name="CountryId" Type="Int64" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Attendances" Relationship="Self.FK_Attendances_Competitors" FromRole="Competitors" ToRole="Attendances" />
+    <NavigationProperty Name="Country" Relationship="Self.FK_Competitors_Countries" FromRole="Competitors" ToRole="Countries" />
+    <NavigationProperty Name="Skill" Relationship="Self.FK_Competitors_Skills" FromRole="Competitors" ToRole="Skills" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Competitors" Relationship="Self.FK_Competitors_Countries" FromRole="Countries" ToRole="Competitors" />
+  </EntityType>
+  <EntityType Name="Skill">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Competitons" Relationship="Self.FK_Competitons_Skills" FromRole="Skills" ToRole="Competitons" />
+    <NavigationProperty Name="Competitors" Relationship="Self.FK_Competitors_Skills" FromRole="Skills" ToRole="Competitors" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Attendances_Competitons">
+    <End Role="Competitons" Type="Self.Competiton" Multiplicity="1" />
+    <End Role="Attendances" Type="Self.Attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Competitons">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Attendances">
+        <PropertyRef Name="CompetitonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Attendances_Competitors">
+    <End Role="Competitors" Type="Self.Competitor" Multiplicity="1" />
+    <End Role="Attendances" Type="Self.Attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Competitors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Attendances">
+        <PropertyRef Name="CompetitorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Competitons_Skills">
+    <End Role="Skills" Type="Self.Skill" Multiplicity="1" />
+    <End Role="Competitons" Type="Self.Competiton" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Skills">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Competitons">
+        <PropertyRef Name="SkillId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Competitors_Countries">
+    <End Role="Countries" Type="Self.Country" Multiplicity="1" />
+    <End Role="Competitors" Type="Self.Competitor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Competitors">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Competitors_Skills">
+    <End Role="Skills" Type="Self.Skill" Multiplicity="1" />
+    <End Role="Competitors" Type="Self.Competitor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Skills">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Competitors">
+        <PropertyRef Name="SkillId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ASC2023_RegistrationEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Attendances" EntityType="Self.Attendance" />
+    <EntitySet Name="Competitons" EntityType="Self.Competiton" />
+    <EntitySet Name="Competitors" EntityType="Self.Competitor" />
+    <EntitySet Name="Countries" EntityType="Self.Country" />
+    <EntitySet Name="Skills" EntityType="Self.Skill" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_Attendances_Competitons" Association="Self.FK_Attendances_Competitons">
+      <End Role="Competitons" EntitySet="Competitons" />
+      <End Role="Attendances" EntitySet="Attendances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Attendances_Competitors" Association="Self.FK_Attendances_Competitors">
+      <End Role="Competitors" EntitySet="Competitors" />
+      <End Role="Attendances" EntitySet="Attendances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Competitons_Skills" Association="Self.FK_Competitons_Skills">
+      <End Role="Skills" EntitySet="Skills" />
+      <End Role="Competitons" EntitySet="Competitons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Competitors_Countries" Association="Self.FK_Competitors_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Competitors" EntitySet="Competitors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Competitors_Skills" Association="Self.FK_Competitors_Skills">
+      <End Role="Skills" EntitySet="Skills" />
+      <End Role="Competitors" EntitySet="Competitors" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:models="clr-namespace:Session5_Mobile.Models"
+             x:Class="Session5_Mobile.Views.CartCheckoutPage" Title="Seoul Stay - Cart Checkout">
+    <ContentPage.Content>
+        <StackLayout Margin="5">
+            <Frame HeightRequest="300" BackgroundColor="Transparent" BorderColor="Black">
+                
+                <ListView x:Name="CartListView" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="models:AddonServiceDetail">
+                            <ViewCell>
+                                <Grid RowDefinitions="20, 20, 20" ColumnDefinitions="50, *, 60">
+                                    <Image Grid.RowSpan="3" Source="{Binding IconName}"/>
+                                    <Label Grid.Column="1">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding ServiceName}"/>
+                                                <Span Text=" $"/>
+                                                <Span Text="{Binding Price}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <Label Grid.Column="1" Grid.Row="1">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="From: "/>
+                                                <Span Text="{Binding FromDateString}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <Label Grid.Column="1" Grid.Row="2">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Number of People: "/>
+                                                <Span Text="{Binding NumberOfPeople}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <Button Grid.Column="2" Grid.RowSpan="3" HeightRequest="30" WidthRequest="30" Text="Del" CornerRadius="20" Clicked="Button_Clicked" CommandParameter="{Binding ID}"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                
+            </Frame>
+
+            <Grid VerticalOptions="CenterAndExpand" ColumnDefinitions="140, *, 80" RowDefinitions="50, 30, 50, 50">
+                <Label Text="Enter Coupon code:" VerticalOptions="Center"/>
+
+                <Entry x:Name="CouponEntry" Grid.Column="1"/>
+                
+                <Button Text="Submit" Grid.Column="2" Clicked="Button_Clicked_1"/>
+
+                <Label x:Name="IsSucceedAppliedLabel" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+                <Label x:Name="PayAmountLabel" Grid.Row="2" Grid.ColumnSpan="3" Text="Total amount Payable (3 Items) : $180.00"/>
+
+                <Button Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Text="Proceed to checkout" WidthRequest="100" Clicked="Button_Clicked_2"/>
+            </Grid>
+
+            <Grid VerticalOptions="EndAndExpand" RowDefinitions="50" ColumnDefinitions="*, *, *">
+                <Frame Margin="-6, 0, 0, 0" Padding="0" BorderColor="Black">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Frame.GestureRecognizers>
+                    <Label Text="Services" FontSize="20" VerticalOptions="Center" HorizontalOptions="Center"/>
+                </Frame>
+                <Frame Margin="-6, 0, 0, 0" Padding="0" Grid.Column="1" BorderColor="Black" BackgroundColor="#333333">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                    </Frame.GestureRecognizers>
+                    <Label x:Name="CartButton" FontSize="20" VerticalOptions="Center" HorizontalOptions="Center"/>
+                </Frame>
+                <Frame Margin="-6, 0, 0, 0" Padding="0" Grid.Column="2" BorderColor="Black">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"/>
+                    </Frame.GestureRecognizers>
+                    <Label Text="About" FontSize="20" VerticalOptions="Center" HorizontalOptions="Center"/>
+                </Frame>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

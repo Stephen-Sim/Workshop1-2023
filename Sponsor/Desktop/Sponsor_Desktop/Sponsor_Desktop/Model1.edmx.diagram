@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="483fc9b85e0045e6a472c6246e3d1593" Name="Diagram1">
+      <Diagram DiagramId="483fc9b85e0045e6a472c6246e3d1593" Name="Diagram1" ZoomLevel="10">
         <EntityTypeShape EntityType="ASC2023_SponsorModel.Competitor" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="ASC2023_SponsorModel.Country" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ASC2023_SponsorModel.Currency" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />

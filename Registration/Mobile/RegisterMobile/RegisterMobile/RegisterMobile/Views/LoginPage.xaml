@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RegisterMobile.Views.LoginPage" Title="Attendance Login">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame VerticalOptions="CenterAndExpand" Margin="10" BackgroundColor="Transparent" BorderColor="Black" HeightRequest="350" CornerRadius="30">
+                <StackLayout VerticalOptions="CenterAndExpand">
+                    <Image Source="logo.png" HeightRequest="120" Margin="5"/>
+                    
+                    <Grid RowDefinitions="60, 60" ColumnDefinitions="80, *">
+                        <Label VerticalOptions="Center" Text="Username :"/>
+                        <Label VerticalOptions="Center" Grid.Row="1" Text="Password :"/>
+
+                        <Editor VerticalOptions="Center" x:Name="UsernameEditor" Grid.Column="1"/>
+                        <Entry VerticalOptions="Center" x:Name="PasswordEntry" IsPassword="True" Grid.Row="1" Grid.Column="1"/>
+                    </Grid>
+
+                    <Button Text="Login" Clicked="Button_Clicked"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

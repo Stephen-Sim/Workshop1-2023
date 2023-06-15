@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:models="clr-namespace:RegisterMobile.Models"
+             x:Class="RegisterMobile.Views.MainPage" Title="Info">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Log Out" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame HeightRequest="200" Margin="5" BorderColor="Black" CornerRadius="20">
+                <Grid RowDefinitions="200" ColumnDefinitions="100, *">
+                    <Image VerticalOptions="CenterAndExpand" Source="profile" HeightRequest="80"/>
+
+                    <StackLayout Grid.Column="1" VerticalOptions="CenterAndExpand">
+                        <StackLayout>
+                            <Label FontAttributes="Bold" Text="Name:"/>
+                            <Label Text="{Binding competitor.Name}"/>
+                        </StackLayout>
+
+                        <StackLayout>
+                            <Label FontAttributes="Bold" Text="Skill:"/>
+                            <Label Text="{Binding competitor.Skill}"/>
+                        </StackLayout>
+
+                        <StackLayout>
+                            <Label FontAttributes="Bold" Text="Country:"/>
+                            <Label Text="{Binding competitor.Country}"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Grid>
+            </Frame>
+
+            <StackLayout Margin="10">
+
+                <Label Text="Available Competitions :"/>
+
+                <ListView x:Name="CompetitionListView" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Competition">
+                            <ViewCell>
+                                <Grid RowDefinitions="80" ColumnDefinitions="50, *, 30">
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                                    </Grid.GestureRecognizers>
+                                    
+                                    <Frame BackgroundColor="{Binding Color}" HeightRequest="50" Padding="0" Margin="0" VerticalOptions="CenterAndExpand" CornerRadius="50"/>
+
+                                    <StackLayout Grid.Column="1">
+                                        <Label>
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Event : "/>
+                                                    <Span Text="{Binding Name}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+
+                                        <Label>
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Location : "/>
+                                                    <Span Text="{Binding Location}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+
+                                        <Label>
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="DateTime : "/>
+                                                    <Span Text="{Binding DateTime}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+
+                                    <CheckBox Grid.Column="2" IsChecked="{Binding Status}" IsEnabled="False"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

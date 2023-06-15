@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:models="clr-namespace:Session5_Mobile.Models"
+             x:Class="Session5_Mobile.Views.ServiceSelectionPage" NavigationPage.HasBackButton="False">
+    <ContentPage.Content>
+        <StackLayout Margin="3">
+            <Label x:Name="stDescLabel"/>
+            <Frame Padding="0" BorderColor="Black" HeightRequest="200" BackgroundColor="Transparent">
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <ListView x:Name="SerivceListView" HasUnevenRows="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="models:Service">
+                                <ViewCell>
+                                    <Grid RowDefinitions="50" ColumnDefinitions="50, *">
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3"/>
+                                        </Grid.GestureRecognizers>
+                                        <Image Source="{Binding Path=BindingContext.ServiceType.IconName, Source={x:Reference Name=SerivceListView}}" HeightRequest="40" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                                        <Label Grid.Column="1" FontSize="20"  VerticalOptions="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding Name}"/>
+                                                    <Span Text=" $"/>
+                                                    <Span Text="{Binding Price}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </Frame>
+
+            <ScrollView x:Name="AddToCartScrollView">
+                <StackLayout>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Description of &quot;"/>
+                                <Span Text="{Binding SelectedService.Name}"/>
+                                <Span Text="&quot;"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label Text="{Binding SelectedService.Description}"/>
+
+                    <StackLayout>
+                        <Grid ColumnDefinitions="50, 100, *" RowDefinitions="55">
+                            <Label Text="Date :" VerticalOptions="Center"/>
+                            <DatePicker Grid.Column="1" x:Name="sDatePicker" Date="1/1/2023" DateSelected="DatePicker_DateSelected"/>
+                            <Label Grid.Column="2" Text="Remaining: " VerticalOptions="Center" x:Name="postLabel"/>
+                        </Grid>
+
+                        <Grid ColumnDefinitions="120, 50, *">
+                            <Label Text="Number of people:" VerticalOptions="Center"/>
+                            <Entry x:Name="FaimlyCountEntry" Grid.Column="1" Keyboard="Numeric" TextChanged="FaimlyCountEntry_TextChanged"/>
+                            <Label x:Name="bookingCapLabel" Grid.Column="2" VerticalOptions="Center"/>
+                        </Grid>
+
+                        <Grid ColumnDefinitions="120, *">
+                            <Label Text="Additional notes:" VerticalOptions="Center"/>
+                            <Entry x:Name="noteEntry" Grid.Column="1"/>
+                        </Grid>
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                            <Label VerticalOptions="Center" x:Name="PriceLabel"/>
+                            <Button Text="Add to cart" Clicked="Button_Clicked"/>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+
+            <Grid VerticalOptions="EndAndExpand" RowDefinitions="50" ColumnDefinitions="*, *, *">
+                <Frame Margin="-6, 0, 0, 0" Padding="0" BorderColor="Black"  BackgroundColor="#333333">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Frame.GestureRecognizers>
+                    <Label Text="Services" FontSize="20" VerticalOptions="Center" HorizontalOptions="Center"/>
+                </Frame>
+                <Frame Margin="-6, 0, 0, 0" Padding="0" Grid.Column="1" BorderColor="Black">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                    </Frame.GestureRecognizers>
+                    <Label x:Name="CartButton" FontSize="20" VerticalOptions="Center" HorizontalOptions="Center"/>
+                </Frame>
+                <Frame Margin="-6, 0, 0, 0" Padding="0" Grid.Column="2" BorderColor="Black">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"/>
+                    </Frame.GestureRecognizers>
+                    <Label Text="About" FontSize="20" VerticalOptions="Center" HorizontalOptions="Center"/>
+                </Frame>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

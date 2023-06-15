@@ -1,0 +1,16 @@
+C:\Users\simsh\Desktop\ASC2023_Practice\Registration\Mobile\RegisterMobile\RegisterMobile\RegisterMobile\bin\Debug\netstandard2.0\RegisterMobile.deps.json
+C:\Users\simsh\Desktop\ASC2023_Practice\Registration\Mobile\RegisterMobile\RegisterMobile\RegisterMobile\bin\Debug\netstandard2.0\RegisterMobile.dll
+C:\Users\simsh\Desktop\ASC2023_Practice\Registration\Mobile\RegisterMobile\RegisterMobile\RegisterMobile\bin\Debug\netstandard2.0\RegisterMobile.pdb
+C:\Users\simsh\Desktop\ASC2023_Practice\Registration\Mobile\RegisterMobile\RegisterMobile\RegisterMobile\obj\Debug\netstandard2.0\RegisterMobile.csproj.AssemblyReference.cache
+C:\Users\simsh\Desktop\ASC2023_Practice\Registration\Mobile\RegisterMobile\RegisterMobile\RegisterMobile\obj\Debug\netstandard2.0\RegisterMobile.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\simsh\Desktop\ASC2023_Practice\Registration\Mobile\RegisterMobile\RegisterMobile\RegisterMobile\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\simsh\Desktop\ASC2023_Practice\Registration\Mobile\RegisterMobile\RegisterMobile\RegisterMobile\obj\Debug\netstandard2.0\RegisterMobile.AssemblyInfoInputs.cache
+C:\Users\simsh\Desktop\ASC2023_Practice\Registration\Mobile\RegisterMobile\RegisterMobile\RegisterMobile\obj\Debug\netstandard2.0\RegisterMobile.AssemblyInfo.cs
+C:\Users\simsh\Desktop\ASC2023_Practice\Registration\Mobile\RegisterMobile\RegisterMobile\RegisterMobile\obj\Debug\netstandard2.0\RegisterMobile.csproj.CoreCompileInputs.cache
+C:\Users\simsh\Desktop\ASC2023_Practice\Registration\Mobile\RegisterMobile\RegisterMobile\RegisterMobile\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\simsh\Desktop\ASC2023_Practice\Registration\Mobile\RegisterMobile\RegisterMobile\RegisterMobile\obj\Debug\netstandard2.0\RegisterMobile.dll
+C:\Users\simsh\Desktop\ASC2023_Practice\Registration\Mobile\RegisterMobile\RegisterMobile\RegisterMobile\obj\Debug\netstandard2.0\refint\RegisterMobile.dll
+C:\Users\simsh\Desktop\ASC2023_Practice\Registration\Mobile\RegisterMobile\RegisterMobile\RegisterMobile\obj\Debug\netstandard2.0\RegisterMobile.pdb
+C:\Users\simsh\Desktop\ASC2023_Practice\Registration\Mobile\RegisterMobile\RegisterMobile\RegisterMobile\obj\Debug\netstandard2.0\ref\RegisterMobile.dll
+C:\Users\simsh\Desktop\ASC2023_Practice\Registration\Mobile\RegisterMobile\RegisterMobile\RegisterMobile\obj\Debug\netstandard2.0\Views\LoginPage.xaml.g.cs
+C:\Users\simsh\Desktop\ASC2023_Practice\Registration\Mobile\RegisterMobile\RegisterMobile\RegisterMobile\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs

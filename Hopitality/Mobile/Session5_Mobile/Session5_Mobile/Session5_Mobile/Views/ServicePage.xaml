@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:models="clr-namespace:Session5_Mobile.Models"
+             x:Class="Session5_Mobile.Views.ServicePage" Title="Seoul Stay - Services Menu">
+    <ContentPage.Content>
+        <StackLayout Margin="5">
+            <Label FontSize="18">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Welcome "/>
+                        <Span x:Name="fnSpan" Text="Welcome "/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label FontSize="18" Text="Please choose a category:"/>
+
+            <ListView x:Name="stListView" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:ServiceType">
+                        <ViewCell>
+                            <Grid RowDefinitions="60" ColumnDefinitions="50, *">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3"/>
+                                </Grid.GestureRecognizers>
+                                <Image HeightRequest="50" Source="{Binding IconName}"/>
+                                <Label Grid.Column="1" FontSize="18" FontAttributes="Bold"  VerticalOptions="CenterAndExpand" Text="{Binding Name}"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Grid RowDefinitions="50" ColumnDefinitions="*, *, *">
+                <Frame Margin="-6, 0, 0, 0" Padding="0" BorderColor="Black" BackgroundColor="#333333">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Frame.GestureRecognizers>
+                    <Label Text="Services" FontSize="20" VerticalOptions="Center" HorizontalOptions="Center"/>
+                </Frame>
+                <Frame Margin="-6, 0, 0, 0" Padding="0" Grid.Column="1" BorderColor="Black">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                    </Frame.GestureRecognizers>
+                    <Label x:Name="CartButton" FontSize="20" VerticalOptions="Center" HorizontalOptions="Center"/>
+                </Frame>
+                <Frame Margin="-6, 0, 0, 0" Padding="0" Grid.Column="2" BorderColor="Black">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"/>
+                    </Frame.GestureRecognizers>
+                    <Label Text="About" FontSize="20" VerticalOptions="Center" HorizontalOptions="Center"/>
+                </Frame>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
